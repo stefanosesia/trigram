@@ -37,8 +37,9 @@ public class UserInterface {
     }
 
     // TODO: 13/06/2020 create the main
-    public void main(){
+    public static void main(String[] args) {
 
+        System.out.println("Hello, World");
     }
 
 
