@@ -9,6 +9,7 @@ import java.util.List;
 public class UserInterface {
 
     private static String inputFile;
+    private static Integer outputLength;
 
     public UserInterface(){
 
@@ -26,6 +27,7 @@ public class UserInterface {
             IO.consolePrint("success", "the following files are available for input:");
             IO.optionsPrinter(availableFiles);
             inputFile = availableFiles.get(IO.userInput("Select a file",0,availableFiles.size() - 1));
+            outputLength = IO.userInput("Select a length (in words) for the output", Constants.minimumOutputLength, Constants.maximumOutputLength);
 
         } catch (Exception e){
             IO.consolePrint("error","an error was encountered while selecting the input file:");
@@ -33,7 +35,9 @@ public class UserInterface {
             System.exit(0);
         }
 
-        IO.consolePrint("info", inputFile + " will be used to generate the trigram.");
+        IO.consolePrint("info", inputFile + " will be used to generate an output of " + outputLength + " words.");
+
+
 
 
     }
