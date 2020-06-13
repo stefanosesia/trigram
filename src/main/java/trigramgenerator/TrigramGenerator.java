@@ -1,5 +1,7 @@
 package main.java.trigramgenerator;
 
+import main.resources.IO;
+
 import java.util.*;
 
 public class TrigramGenerator {
@@ -16,15 +18,19 @@ public class TrigramGenerator {
         return trigram;
     }
 
-    public String concatenate(String element1, String element2){
-        return element1 + " " + element2;
-    }
-
     public void generateTrigram(List<String> inputText) {
+        if (inputText == null || inputText.size() == 0){
+            IO.consolePrint("error", "Input text is empty");
+            System.exit(0);
+        }
         for (String line : inputText) {
             List<String> input = Arrays.asList(line.split(" "));
+            if (input.size() < 3){
+                IO.consolePrint("error", "Line is too short");
+                System.exit(0);
+            }
             for (int i = 0; i < input.size() - 2; i++) {
-                String trigramKey = concatenate(input.get(i),input.get(i+1));
+                String trigramKey = IO.concatenate(input.get(i),input.get(i+1));
                 String trigramValue = input.get(i+2);
 
                 if (trigram.containsKey(trigramKey)){
@@ -36,6 +42,7 @@ public class TrigramGenerator {
                 }
             }
         }
+        IO.consolePrint("success", "Trigram map successfully generated");
     }
 
 
