@@ -23,9 +23,9 @@ class FileManagerTest {
     void getFileList() {
         manager.readFolder(libraryDirectory);
         List<String> actualList = manager.getFileList();
-        List<String> expectedList = new ArrayList<String>();;
+        List<String> expectedList = new ArrayList<String>();
         expectedList.add("example.txt");
-        expectedList.add("example2.txt");
+        expectedList.add("LoremIpsum.txt");
         assertEquals(expectedList, actualList);
     }
 
