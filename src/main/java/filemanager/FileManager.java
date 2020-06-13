@@ -1,7 +1,10 @@
 package main.java.filemanager;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
 
 public class FileManager {
 
@@ -17,10 +20,9 @@ public class FileManager {
         return this.availableFiles;
     }
 
-    // TODO: 13/06/2020 add folder reader functionality
-    public void readFolder(){
+    public void readFolder(File directory){
 
-        this.availableFiles = new ArrayList<>();
+        this.availableFiles = Arrays.asList(directory.list());
     }
 
 
