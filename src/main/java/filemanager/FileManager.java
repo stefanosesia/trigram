@@ -1,5 +1,7 @@
 package main.java.filemanager;
 
+import main.resources.IO;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +25,7 @@ public class FileManager {
     public void readFolder(File directory){
 
         this.availableFiles = Arrays.asList(directory.list());
+        IO.consolePrint("success", "files retrived from the library:");
     }
 
 
