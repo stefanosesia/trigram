@@ -35,7 +35,7 @@ public class TextGenerator {
             generatedText += generatedList.get(i);
             generatedText += " ";
         }
-        this.resultingText = generatedText;
+        this.resultingText = generatedText.substring(0, generatedText.length() -1) ;
     }
 
 
@@ -55,7 +55,7 @@ public class TextGenerator {
         }
 
         joinText(generatedList);
-        IO.consolePrint("success","Text generated ( " + String.valueOf(generatedList.size()) + " words)");
+        IO.consolePrint("success","Text generated.");
     }
 
 
