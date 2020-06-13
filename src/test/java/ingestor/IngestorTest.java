@@ -26,4 +26,19 @@ class IngestorTest {
         assertEquals(expectedText,ingestor.getInputText());
     }
 
+    @Test
+    void testMultipleLinesInputFile() {
+        File testFile = new File("src/test/sources/LoremIpsum.txt");
+        ingestor.readFile(testFile);
+        List<String> expectedText = new ArrayList<String>();
+        expectedText.add("Lorem ipsum dolor sit amet, consectetur adipiscing eli.");
+        expectedText.add("Nullam eget ante quis risus imperdiet scelerisque.");
+        expectedText.add("Fusce eget vestibulum odio.");
+        expectedText.add("Etiam ut neque erat.");
+        expectedText.add("Donec ut ex iaculis, tincidunt sapien a, consequat est.");
+        expectedText.add("Praesent luctus arcu eu fringilla laoreet.");
+        expectedText.add("Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.");
+        assertEquals(expectedText,ingestor.getInputText());
+    }
+
 }
