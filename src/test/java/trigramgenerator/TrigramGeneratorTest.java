@@ -1,21 +1,19 @@
-package main.java.filemanager;
+package test.java.trigramgenerator;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class FileManagerTest {
+class TrigramGeneratorTest {
 
     @BeforeEach
     void setUp() {
     }
 
     @Test
-    void getFileList() {
+    void getTrigram() {
     }
 
     @Test
-    void readFolder() {
+    void generateTrigram() {
     }
 }

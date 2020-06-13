@@ -1,21 +1,19 @@
-package main.java.ingestor;
+package test.java.filemanager;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class IngestorTest {
+class FileManagerTest {
 
     @BeforeEach
     void setUp() {
     }
 
     @Test
-    void openFile() {
+    void getFileList() {
     }
 
     @Test
-    void getInputText() {
+    void readFolder() {
     }
 }
