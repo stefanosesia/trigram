@@ -1,7 +1,9 @@
 package main.resources;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class IO {
 
@@ -39,5 +41,13 @@ public class IO {
         return choice;
     }
 
+    public static String concatenate(String element1, String element2){
+        return element1 + " " + element2;
+    }
 
+    public static List<String> separate(String concatenatedKey){
+        return Arrays.asList(concatenatedKey.split(" "));
+    }
+
+    public static Integer randomChoice(Integer max){return ThreadLocalRandom.current().nextInt(0, max);}
 }

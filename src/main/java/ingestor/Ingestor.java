@@ -35,6 +35,7 @@ public class Ingestor {
                 this.inputText.add(scanner.nextLine());
             }
             scanner.close();
+            IO.consolePrint("success","File ingested");
         } catch(Exception e) {
             IO.consolePrint("error", "An error occourred while reading a file");
             IO.consolePrint("info",e.getMessage());
