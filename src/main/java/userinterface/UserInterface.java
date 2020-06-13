@@ -1,45 +1,36 @@
 package main.java.userinterface;
 
-public class UserInterface {
+import main.java.filemanager.FileManager;
+import main.resources.Constants;
+import main.resources.IO;
 
-    private Integer requiredLength;
-    private Integer selectedInput;
+import java.util.List;
+
+public class UserInterface {
 
     public UserInterface(){
 
-        this.requiredLength = 0;
-        this.selectedInput = 0;
     }
-    public void setRequiredLength(Integer requiredLength){
-
-        this.requiredLength = requiredLength;
-    }
-
-    public void setSelectedInput(Integer selectedInput){
-
-        this.selectedInput = selectedInput;
-    }
-
-    public Integer getRequiredLength(){
-
-        return this.requiredLength;
-    }
-
-    public Integer getSelectedInput(){
-
-        return this.selectedInput;
-    }
-
-    // TODO: 13/06/2020 fix console print
-    public void consolePrint(String type, String message){
-
-        System.out.println("[" + type + "] : " + message);
-    }
-
     // TODO: 13/06/2020 create the main
     public static void main(String[] args) {
 
-        System.out.println("Hello, World");
+        IO.consolePrint("step", "Welcome to the trigram generator");
+
+        IO.consolePrint("info", "Retriving the input files from the library:");
+        try {
+            FileManager files = new FileManager();
+            files.readFolder(Constants.libraryDirectory);
+            List<String> availableFiles = files.getFileList();
+            IO.consolePrint("success", "select an input file from the list:");
+            IO.optionsPrinter(availableFiles);
+
+        } catch (Exception e){
+            IO.consolePrint("error","an error was encountered while reading the library:");
+            IO.consolePrint("info",e.getMessage());
+            return;
+
+        }
+
     }
 
 

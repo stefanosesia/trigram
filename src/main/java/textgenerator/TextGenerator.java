@@ -1,5 +1,7 @@
 package main.java.textgenerator;
 
+import main.resources.Constants;
+
 import java.util.List;
 import java.util.Map;
 
@@ -10,8 +12,8 @@ public class TextGenerator {
 
     public TextGenerator(Integer textLength){
 
-        this.textLength = 0;
-        this.resultingText = "";
+        this.textLength = Constants.requiredLength;
+        this.resultingText = Constants.resultingText;
     }
 
     public void setTextLength(Integer textLength){
