@@ -18,20 +18,30 @@ public class TrigramGenerator {
         return trigram;
     }
 
+    private Boolean hasNext(Integer listSize, Integer recursiveCounter){
+
+        return recursiveCounter < listSize - 1;
+    }
+
     public void generateTrigram(List<String> inputText) {
         if (inputText == null || inputText.size() == 0){
             IO.consolePrint("error", "Input text is empty");
             System.exit(0);
         }
-        for (String line : inputText) {
-            List<String> input = Arrays.asList(line.split(" "));
-            if (input.size() < 3){
-                IO.consolePrint("error", "Line is too short");
-                System.exit(0);
+        for (int i = 0; i < inputText.size(); i++) {
+            ArrayList<String> input = new ArrayList<String>(Arrays.asList(inputText.get(i).split(" ")));
+            if (hasNext(inputText.size(), i)) {
+                List<String> nextLineBeginning = Arrays.asList(inputText.get(i+1).split(" ",3));
+                input.add(nextLineBeginning.get(0));
+                input.add(nextLineBeginning.get(1));
             }
-            for (int i = 0; i < input.size() - 2; i++) {
-                String trigramKey = IO.concatenate(input.get(i),input.get(i+1));
-                String trigramValue = input.get(i+2);
+            if (input.size() < 3){
+                continue;
+            }
+
+            for (int j = 0; j < input.size() - 2; j++) {
+                String trigramKey = IO.concatenate(input.get(j),input.get(j+1));
+                String trigramValue = input.get(j+2);
 
                 if (trigram.containsKey(trigramKey)){
                    trigram.get(trigramKey).add(trigramValue);

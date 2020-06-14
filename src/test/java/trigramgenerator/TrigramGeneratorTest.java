@@ -28,4 +28,21 @@ class TrigramGeneratorTest {
         assertEquals(expectedTrigram, actualTrigram);
     }
 
+    @Test
+    void generateMultilineTrigram() {
+        List<String> input = Arrays.asList("I wish I may I wish I might","Did I wish");
+        Map<String, ArrayList<String>> expectedTrigram = new HashMap<>();
+        expectedTrigram.put("I wish", new ArrayList<String>() {{add("I"); add("I"); }});
+        expectedTrigram.put("wish I", new ArrayList<String>() {{add("may"); add("might"); }});
+        expectedTrigram.put("may I", new ArrayList<String>() {{add("wish");}});
+        expectedTrigram.put("I may", new ArrayList<String>() {{add("I"); }});
+        expectedTrigram.put("I might", new ArrayList<String>() {{add("Did"); }});
+        expectedTrigram.put("Did I", new ArrayList<String>() {{add("wish"); }});
+        expectedTrigram.put("might Did", new ArrayList<String>() {{add("I"); }});
+
+        trigramGenerator.generateTrigram(input);
+        Map<String, ArrayList<String>> actualTrigram = trigramGenerator.getTrigram();
+        assertEquals(expectedTrigram, actualTrigram);
+    }
+
 }
