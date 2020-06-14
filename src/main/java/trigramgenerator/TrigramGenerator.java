@@ -8,9 +8,11 @@ public class TrigramGenerator {
 
     private Map<String, ArrayList<String>> trigram;
 
+
     public TrigramGenerator(){
 
         this.trigram = new HashMap<>();
+
     }
 
     public Map<String, ArrayList<String>> getTrigram(){
