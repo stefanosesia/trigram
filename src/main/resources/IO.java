@@ -7,13 +7,15 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class IO {
 
-    public IO(){
+    private static CustomLogger logger = new CustomLogger();
 
+    public IO(){
     }
 
     public static void consolePrint(String type, String message){
-
-        System.out.println("[" + Constants.messageType.get(type) + "] : " + message);
+        String consoleOutput = "[" + Constants.messageType.get(type) + "] : " + message;
+        System.out.println(consoleOutput);
+        logger.logEvent(consoleOutput);
     }
 
     public static void optionsPrinter(List<String> listedElements){
