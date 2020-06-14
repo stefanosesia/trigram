@@ -8,6 +8,7 @@ import main.resources.Constants;
 import main.resources.IO;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class UserInterface {
@@ -27,8 +28,6 @@ public class UserInterface {
     public static void main(String[] args) {
 
         IO.consolePrint("step", "Welcome to the trigram generator");
-
-        IO.consolePrint("info", "Retriving the input files from the library:");
         try {
 
             files.readFolder(Constants.libraryDirectory);
@@ -40,7 +39,7 @@ public class UserInterface {
             outputLength = IO.userInput("Select a length (in words) for the output", Constants.minimumOutputLength, Constants.maximumOutputLength);
 
         } catch (Exception e){
-            IO.consolePrint("error","an error was encountered while selecting the input file:");
+            IO.consolePrint("error","an error was encountered while selecting options:");
             IO.consolePrint("info",e.getMessage());
             System.exit(0);
         }
@@ -52,8 +51,8 @@ public class UserInterface {
 
         generator.setTextLength(outputLength);
         generator.generateText(trigram.getTrigram());
-
-        IO.consolePrint("success",generator.getResultingText());
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
+        ingestor.writeToFile(generator.getResultingText(), inputFile + "_" + timeStamp);
 
     }
 

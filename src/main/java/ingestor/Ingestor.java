@@ -1,8 +1,11 @@
 package main.java.ingestor;
 
+import main.resources.Constants;
 import main.resources.IO;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,6 +21,22 @@ public class Ingestor {
     public List<String> getInputText(){
 
         return inputText;
+    }
+
+    public void writeToFile(String generatedText, String filename){
+        File destinationFile = new File(Constants.outputDirectory + "/" + filename);
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(destinationFile));
+            writer.write(generatedText);
+            writer.close();
+
+        } catch(Exception e) {
+            IO.consolePrint("error", "An error occourred while writing to a file");
+            IO.consolePrint("info",e.getMessage());
+            IO.consolePrint("success","Generated text:");
+            IO.consolePrint("info",generatedText);
+            System.exit(0);
+        }
     }
 
     public void hasAccess(File file){
