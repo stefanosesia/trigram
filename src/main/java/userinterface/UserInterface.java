@@ -52,7 +52,7 @@ public class UserInterface {
         generator.setTextLength(outputLength);
         generator.generateText(trigram.getTrigram());
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-        ingestor.writeToFile(generator.getResultingText(), inputFile + "_" + timeStamp);
+        ingestor.writeToFile(generator.getResultingText(), inputFile + "_" + timeStamp + ".txt");
 
     }
 
