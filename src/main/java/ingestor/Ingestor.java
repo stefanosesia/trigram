@@ -26,13 +26,15 @@ public class Ingestor {
     public void writeToFile(String generatedText, String filename){
         File destinationFile = new File(Constants.outputDirectory + "/" + filename);
         try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter(Constants.outputDirectory));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(destinationFile));
             writer.write(generatedText);
             writer.close();
 
         } catch(Exception e) {
             IO.consolePrint("error", "An error occourred while writing to a file");
             IO.consolePrint("info",e.getMessage());
+            IO.consolePrint("success","Generated text:");
+            IO.consolePrint("info",generatedText);
             System.exit(0);
         }
     }
