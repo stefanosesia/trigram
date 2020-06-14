@@ -8,6 +8,7 @@ public class Constants {
 
     public static final File libraryDirectory = new File("library");
     public static final File outputDirectory = new File("output");
+    public static final File logfileDirectory = new File("log/executionLog.log");
     public static final Integer requiredLength = 0;
     public static final Integer minimumOutputLength = 3;
     public static final Integer maximumOutputLength = 100;
