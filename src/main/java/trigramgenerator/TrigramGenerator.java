@@ -29,7 +29,9 @@ public class TrigramGenerator {
             System.exit(0);
         }
         for (int i = 0; i < inputText.size(); i++) {
-            ArrayList<String> input = new ArrayList<String>(Arrays.asList(inputText.get(i).split(" ")));
+            ArrayList<String> input = new ArrayList<String>(Arrays.asList(IO.stripValues(inputText.get(i)).toLowerCase().split(" ")));
+            input.removeAll(Collections.singletonList(" "));
+            input.removeAll(Collections.singletonList(""));
             if (hasNext(inputText.size(), i)) {
                 List<String> nextLineBeginning = Arrays.asList(inputText.get(i+1).split(" ",3));
                 if (nextLineBeginning.size() > 1){
@@ -43,7 +45,7 @@ public class TrigramGenerator {
             }
 
             for (int j = 0; j < input.size() - 2; j++) {
-                String trigramKey = IO.concatenate(input.get(j),input.get(j+1));
+                String trigramKey = IO.concatenate(IO.stripKey(input.get(j)),IO.stripKey(input.get(j+1)));
                 String trigramValue = input.get(j+2);
 
                 if (trigram.containsKey(trigramKey)){

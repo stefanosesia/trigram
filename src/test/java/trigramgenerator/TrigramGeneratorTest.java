@@ -1,6 +1,7 @@
 package test.java.trigramgenerator;
 
 import main.java.trigramgenerator.TrigramGenerator;
+import main.resources.IO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -65,6 +66,22 @@ class TrigramGeneratorTest {
         trigramGenerator.generateTrigram(input);
         Map<String, ArrayList<String>> actualTrigram = trigramGenerator.getTrigram();
         assertEquals(expectedTrigram, actualTrigram);
+    }
+
+    @Test
+    void testStrippingKeys(){
+        String input = "keys Must, Not!{Have Any' non-alpha^Character";
+        String expectedKey = "keysMustNotHaveAnynonalphaCharacter";
+        String actualKey = IO.stripKey(input);
+        assertEquals(expectedKey, actualKey);
+    }
+
+    @Test
+    void testStrippingText() {
+        String input = "The text( can, have;^ some punctuation.";
+        String expectedValue = "The text can, have; some punctuation.";
+        String actualValue = IO.stripValues(input);
+        assertEquals(expectedValue, actualValue);
     }
 
 

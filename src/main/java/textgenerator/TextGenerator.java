@@ -47,7 +47,7 @@ public class TextGenerator {
         generatedList.add(IO.separate(startingWords).get(1));
         String key = startingWords;
         int lastPositionPointer = 1;
-        while (trigram.containsKey(key) && generatedList.size() < this.textLength){
+        while (trigram.containsKey(key)){
             ArrayList<String> nextWordCandidates = trigram.get(key);
             String nextWord = nextWordCandidates.get(IO.randomChoice(nextWordCandidates.size()));
             if (nextWord.contains(".")){
@@ -55,7 +55,7 @@ public class TextGenerator {
             }
             generatedList.add(nextWord);
             lastPositionPointer += 1;
-            key = IO.concatenate(generatedList.get(lastPositionPointer-1), generatedList.get(lastPositionPointer));
+            key = IO.concatenate(IO.stripKey(generatedList.get(lastPositionPointer-1)), IO.stripKey(generatedList.get(lastPositionPointer)));
         }
 
         joinText(generatedList);
