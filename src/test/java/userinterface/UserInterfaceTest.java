@@ -5,31 +5,14 @@ import org.junit.jupiter.api.Test;
 
 class UserInterfaceTest {
 
+
     @BeforeEach
     void setUp() {
     }
 
     @Test
-    void setRequiredLength() {
+    void testSimpleGeneratedTest() {
+
     }
 
-    @Test
-    void setSelectedInput() {
-    }
-
-    @Test
-    void getRequiredLength() {
-    }
-
-    @Test
-    void getSelectedInput() {
-    }
-
-    @Test
-    void consolePrint() {
-    }
-
-    @Test
-    void main() {
-    }
 }

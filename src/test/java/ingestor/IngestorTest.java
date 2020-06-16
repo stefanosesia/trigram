@@ -1,14 +1,15 @@
 package test.java.ingestor;
 
 import main.java.ingestor.Ingestor;
+import main.resources.Constants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 class IngestorTest {
     Ingestor ingestor = new Ingestor();
@@ -39,6 +40,14 @@ class IngestorTest {
         expectedText.add("Praesent luctus arcu eu fringilla laoreet.");
         expectedText.add("Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.");
         assertEquals(expectedText,ingestor.getInputText());
+    }
+
+    @Test
+    void testCreatingAFile(){
+        File testFile = new File(Constants.outputDirectory + "/" + "test");
+        ingestor.writeToFile("Example","test");
+        assertTrue(testFile.exists());
+        assertTrue(testFile.delete());
     }
 
 }
