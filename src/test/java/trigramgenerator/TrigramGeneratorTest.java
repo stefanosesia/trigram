@@ -45,4 +45,27 @@ class TrigramGeneratorTest {
         assertEquals(expectedTrigram, actualTrigram);
     }
 
+    @Test
+    void concatenateMultipleLines() {
+        List<String> input = Arrays.asList("I","like books");
+        Map<String, ArrayList<String>> expectedTrigram = new HashMap<>();
+        expectedTrigram.put("I like", new ArrayList<String>() {{add("books");}});
+
+        trigramGenerator.generateTrigram(input);
+        Map<String, ArrayList<String>> actualTrigram = trigramGenerator.getTrigram();
+        assertEquals(expectedTrigram, actualTrigram);
+    }
+
+    @Test
+    void skipShortUnconcatenatedLines() {
+        List<String> input = Arrays.asList("I","like","reading books");
+        Map<String, ArrayList<String>> expectedTrigram = new HashMap<>();
+        expectedTrigram.put("like reading", new ArrayList<String>() {{add("books");}});
+
+        trigramGenerator.generateTrigram(input);
+        Map<String, ArrayList<String>> actualTrigram = trigramGenerator.getTrigram();
+        assertEquals(expectedTrigram, actualTrigram);
+    }
+
+
 }

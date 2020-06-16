@@ -38,7 +38,7 @@ public class TrigramGenerator {
                 }
 
             }
-            if (input.size() < 3 || inputText.contains("[Illustration")){
+            if (input.size() < 3){
                 continue;
             }
 
