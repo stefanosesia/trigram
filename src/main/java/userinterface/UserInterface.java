@@ -16,10 +16,10 @@ public class UserInterface {
     private static String inputFile;
     private static Integer outputLength;
     private static File sourceFile;
-    private static FileManager files = new FileManager();
-    private static Ingestor ingestor = new Ingestor();
-    private static TrigramGenerator trigram = new TrigramGenerator();
-    private static TextGenerator generator = new TextGenerator();
+    private static final FileManager files = new FileManager();
+    private static final Ingestor ingestor = new Ingestor();
+    private static final TrigramGenerator trigram = new TrigramGenerator();
+    private static final TextGenerator generator = new TextGenerator();
 
     public UserInterface(){
 

@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class IO {
 
-    private static CustomLogger logger = new CustomLogger();
+    private static final CustomLogger logger = new CustomLogger();
 
     public IO(){
     }
@@ -33,6 +33,17 @@ public class IO {
         }
     }
 
+    public static String stripKey(String key){
+        String regex = "[^a-zA-Z]";
+        return key.replaceAll(regex,"");
+
+    }
+
+    public static String stripValues(String value){
+        String regex = "[^a-zA-Z|,|.|;|:| |]";
+        return value.replaceAll(regex,"");
+    }
+
     public static Integer userInput(String message, Integer min, Integer max){
         Scanner myObj = new Scanner(System.in);
         consolePrint("step",message + " between " + String.valueOf(min) + " and " + String.valueOf(max));
@@ -44,7 +55,7 @@ public class IO {
     }
 
     public static String concatenate(String element1, String element2){
-        return element1 + " " + element2;
+        return (element1 + " " + element2);
     }
 
     public static List<String> separate(String concatenatedKey){

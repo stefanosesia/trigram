@@ -5,7 +5,7 @@ import main.java.trigramgenerator.TrigramGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -20,7 +20,7 @@ class TextGeneratorTest {
 
     @Test
     void generatingTextFlatTrigram() {
-        List<String> input = Arrays.asList("testing flat trigram");
+        List<String> input = Collections.singletonList("testing flat trigram");
         trigramGenerator.generateTrigram(input);
         generator.setTextLength(3);
         generator.generateText(trigramGenerator.getTrigram());

@@ -30,10 +30,10 @@ public class TextGenerator {
 
     public void joinText(List<String> generatedList){
 
-        String generatedText = "";
-        for (int i = 0; i < generatedList.size(); i++){
-            generatedText += generatedList.get(i);
-            generatedText += " ";
+        StringBuilder generatedText = new StringBuilder();
+        for (String s : generatedList) {
+            generatedText.append(s);
+            generatedText.append(" ");
         }
         this.resultingText = generatedText.substring(0, generatedText.length() -1) ;
     }
@@ -46,12 +46,16 @@ public class TextGenerator {
         generatedList.add(IO.separate(startingWords).get(0));
         generatedList.add(IO.separate(startingWords).get(1));
         String key = startingWords;
-        Integer lastPositionPointer = 1;
-        while (trigram.containsKey(key) && generatedList.size() < this.textLength){
+        int lastPositionPointer = 1;
+        while (trigram.containsKey(key)){
             ArrayList<String> nextWordCandidates = trigram.get(key);
-            generatedList.add(nextWordCandidates.get(IO.randomChoice(nextWordCandidates.size())));
+            String nextWord = nextWordCandidates.get(IO.randomChoice(nextWordCandidates.size()));
+            if (nextWord.contains(".")){
+                nextWord += "\n";
+            }
+            generatedList.add(nextWord);
             lastPositionPointer += 1;
-            key = IO.concatenate(generatedList.get(lastPositionPointer-1), generatedList.get(lastPositionPointer));
+            key = IO.concatenate(IO.stripKey(generatedList.get(lastPositionPointer-1)), IO.stripKey(generatedList.get(lastPositionPointer)));
         }
 
         joinText(generatedList);
