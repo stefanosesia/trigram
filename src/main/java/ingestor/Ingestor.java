@@ -3,12 +3,9 @@ package main.java.ingestor;
 import main.resources.Constants;
 import main.resources.IO;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Ingestor {
     private List<String> inputText;
@@ -49,11 +46,14 @@ public class Ingestor {
     public void readFile(File file){
         hasAccess(file);
         try{
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()){
-                this.inputText.add(scanner.nextLine());
+            FileInputStream fileStream = new FileInputStream(file);
+            DataInputStream inputStream = new DataInputStream(fileStream);
+            BufferedReader bufferReader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            while ((line = bufferReader.readLine()) != null){
+                this.inputText.add(line);
             }
-            scanner.close();
+            fileStream.close();
             IO.consolePrint("success","File ingested");
         } catch(Exception e) {
             IO.consolePrint("error", "An error occourred while reading a file");

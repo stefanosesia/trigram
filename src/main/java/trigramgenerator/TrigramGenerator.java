@@ -32,10 +32,13 @@ public class TrigramGenerator {
             ArrayList<String> input = new ArrayList<String>(Arrays.asList(inputText.get(i).split(" ")));
             if (hasNext(inputText.size(), i)) {
                 List<String> nextLineBeginning = Arrays.asList(inputText.get(i+1).split(" ",3));
-                input.add(nextLineBeginning.get(0));
-                input.add(nextLineBeginning.get(1));
+                if (nextLineBeginning.size() > 1){
+                    input.add(nextLineBeginning.get(0));
+                    input.add(nextLineBeginning.get(1));
+                }
+
             }
-            if (input.size() < 3){
+            if (input.size() < 3 || inputText.contains("[Illustration")){
                 continue;
             }
 
