@@ -29,11 +29,11 @@ public class TrigramGenerator {
             System.exit(0);
         }
         for (int i = 0; i < inputText.size(); i++) {
-            ArrayList<String> input = new ArrayList<String>(Arrays.asList(IO.stripValues(inputText.get(i)).toLowerCase().split(" ")));
+            ArrayList<String> input = new ArrayList<String>(Arrays.asList(IO.stripValues(inputText.get(i)).split(" ")));
             input.removeAll(Collections.singletonList(" "));
             input.removeAll(Collections.singletonList(""));
             if (hasNext(inputText.size(), i)) {
-                List<String> nextLineBeginning = Arrays.asList(inputText.get(i+1).split(" ",3));
+                List<String> nextLineBeginning = Arrays.asList(IO.stripValues(inputText.get(i+1)).split(" ",3));
                 if (nextLineBeginning.size() > 1){
                     input.add(nextLineBeginning.get(0));
                     input.add(nextLineBeginning.get(1));
