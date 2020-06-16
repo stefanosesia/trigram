@@ -35,13 +35,13 @@ public class IO {
 
     public static String stripKey(String key){
         String regex = "[^a-zA-Z]";
-        return key.replaceAll(regex,"");
+        return key.replaceAll(regex,"").toLowerCase();
 
     }
 
     public static String stripValues(String value){
         String regex = "[^a-zA-Z|,|.|;|:| |]";
-        return value.replaceAll(regex,"");
+        return value.replaceAll(regex,"").toLowerCase();
     }
 
     public static Integer userInput(String message, Integer min, Integer max){

@@ -20,10 +20,10 @@ class TrigramGeneratorTest {
     void generateKataTrigram() {
         List<String> input = Collections.singletonList("I wish I may I wish I might");
         Map<String, ArrayList<String>> expectedTrigram = new HashMap<>();
-        expectedTrigram.put("I wish", new ArrayList<String>() {{add("I"); add("I"); }});
-        expectedTrigram.put("wish I", new ArrayList<String>() {{add("may"); add("might"); }});
-        expectedTrigram.put("may I", new ArrayList<String>() {{add("wish");}});
-        expectedTrigram.put("I may", new ArrayList<String>() {{add("I"); }});
+        expectedTrigram.put("i wish", new ArrayList<String>() {{add("i"); add("i"); }});
+        expectedTrigram.put("wish i", new ArrayList<String>() {{add("may"); add("might"); }});
+        expectedTrigram.put("may i", new ArrayList<String>() {{add("wish");}});
+        expectedTrigram.put("i may", new ArrayList<String>() {{add("i"); }});
         trigramGenerator.generateTrigram(input);
         Map<String, ArrayList<String>> actualTrigram = trigramGenerator.getTrigram();
         assertEquals(expectedTrigram, actualTrigram);
@@ -33,13 +33,13 @@ class TrigramGeneratorTest {
     void generateMultilineTrigram() {
         List<String> input = Arrays.asList("I wish I may I wish I might","Did I wish");
         Map<String, ArrayList<String>> expectedTrigram = new HashMap<>();
-        expectedTrigram.put("I wish", new ArrayList<String>() {{add("I"); add("I"); }});
-        expectedTrigram.put("wish I", new ArrayList<String>() {{add("may"); add("might"); }});
-        expectedTrigram.put("may I", new ArrayList<String>() {{add("wish");}});
-        expectedTrigram.put("I may", new ArrayList<String>() {{add("I"); }});
-        expectedTrigram.put("I might", new ArrayList<String>() {{add("Did"); }});
-        expectedTrigram.put("Did I", new ArrayList<String>() {{add("wish"); }});
-        expectedTrigram.put("might Did", new ArrayList<String>() {{add("I"); }});
+        expectedTrigram.put("i wish", new ArrayList<String>() {{add("i"); add("i"); }});
+        expectedTrigram.put("wish i", new ArrayList<String>() {{add("may"); add("might"); }});
+        expectedTrigram.put("may i", new ArrayList<String>() {{add("wish");}});
+        expectedTrigram.put("i may", new ArrayList<String>() {{add("i"); }});
+        expectedTrigram.put("i might", new ArrayList<String>() {{add("did"); }});
+        expectedTrigram.put("did i", new ArrayList<String>() {{add("wish"); }});
+        expectedTrigram.put("might did", new ArrayList<String>() {{add("i"); }});
 
         trigramGenerator.generateTrigram(input);
         Map<String, ArrayList<String>> actualTrigram = trigramGenerator.getTrigram();
@@ -50,7 +50,7 @@ class TrigramGeneratorTest {
     void concatenateMultipleLines() {
         List<String> input = Arrays.asList("I","like books");
         Map<String, ArrayList<String>> expectedTrigram = new HashMap<>();
-        expectedTrigram.put("I like", new ArrayList<String>() {{add("books");}});
+        expectedTrigram.put("i like", new ArrayList<String>() {{add("books");}});
 
         trigramGenerator.generateTrigram(input);
         Map<String, ArrayList<String>> actualTrigram = trigramGenerator.getTrigram();
@@ -71,7 +71,7 @@ class TrigramGeneratorTest {
     @Test
     void testStrippingKeys(){
         String input = "keys Must, Not!{Have Any' non-alpha^Character";
-        String expectedKey = "keysMustNotHaveAnynonalphaCharacter";
+        String expectedKey = "keysmustnothaveanynonalphacharacter";
         String actualKey = IO.stripKey(input);
         assertEquals(expectedKey, actualKey);
     }
@@ -79,7 +79,7 @@ class TrigramGeneratorTest {
     @Test
     void testStrippingText() {
         String input = "The text( can, have;^ some punctuation.";
-        String expectedValue = "The text can, have; some punctuation.";
+        String expectedValue = "the text can, have; some punctuation.";
         String actualValue = IO.stripValues(input);
         assertEquals(expectedValue, actualValue);
     }
