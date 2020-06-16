@@ -17,7 +17,7 @@ class TrigramGeneratorTest {
 
     @Test
     void generateKataTrigram() {
-        List<String> input = Arrays.asList("I wish I may I wish I might");
+        List<String> input = Collections.singletonList("I wish I may I wish I might");
         Map<String, ArrayList<String>> expectedTrigram = new HashMap<>();
         expectedTrigram.put("I wish", new ArrayList<String>() {{add("I"); add("I"); }});
         expectedTrigram.put("wish I", new ArrayList<String>() {{add("may"); add("might"); }});

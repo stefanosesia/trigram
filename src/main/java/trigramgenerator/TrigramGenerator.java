@@ -6,7 +6,7 @@ import java.util.*;
 
 public class TrigramGenerator {
 
-    private Map<String, ArrayList<String>> trigram;
+    private final Map<String, ArrayList<String>> trigram;
 
     public TrigramGenerator(){
 

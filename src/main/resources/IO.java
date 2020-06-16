@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class IO {
 
-    private static CustomLogger logger = new CustomLogger();
+    private static final CustomLogger logger = new CustomLogger();
 
     public IO(){
     }

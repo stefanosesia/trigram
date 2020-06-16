@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ingestor {
-    private List<String> inputText;
+    private final List<String> inputText;
 
     public Ingestor(){
 
