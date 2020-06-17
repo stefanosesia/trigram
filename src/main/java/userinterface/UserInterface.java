@@ -3,7 +3,7 @@ package main.java.userinterface;
 import main.java.filemanager.FileManager;
 import main.java.ingestor.Ingestor;
 import main.java.textgenerator.TextGenerator;
-import main.java.trigramgenerator.TrigramGenerator;
+import main.java.trigramgenerator.TrigramMapGenerator;
 import main.resources.Constants;
 import main.resources.IO;
 
@@ -18,7 +18,7 @@ public class UserInterface {
     private static File sourceFile;
     private static final FileManager files = new FileManager();
     private static final Ingestor ingestor = new Ingestor();
-    private static final TrigramGenerator trigram = new TrigramGenerator();
+    private static final TrigramMapGenerator trigram = new TrigramMapGenerator();
     private static final TextGenerator generator = new TextGenerator();
 
     public UserInterface(){
@@ -47,7 +47,7 @@ public class UserInterface {
         IO.consolePrint("info", inputFile + " will be used to generate an output of " + outputLength + " words.");
 
         ingestor.readFile(sourceFile);
-        trigram.generateTrigram(ingestor.getInputText());
+        trigram.generateTrigramMap(ingestor.getInputText());
 
         generator.setTextLength(outputLength);
         generator.generateText(trigram.getTrigram());

@@ -1,20 +1,15 @@
 package test.java.trigramgenerator;
 
-import main.java.trigramgenerator.TrigramGenerator;
+import main.java.trigramgenerator.TrigramMapGenerator;
 import main.resources.IO;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
-class TrigramGeneratorTest {
-    TrigramGenerator trigramGenerator = new TrigramGenerator();
-
-    @BeforeEach
-    void setUp() {
-    }
+class TrigramMapGeneratorTest {
+    TrigramMapGenerator trigramMapGenerator = new TrigramMapGenerator();
 
     @Test
     void generateKataTrigram() {
@@ -24,8 +19,8 @@ class TrigramGeneratorTest {
         expectedTrigram.put("wish i", new ArrayList<String>() {{add("may"); add("might"); }});
         expectedTrigram.put("may i", new ArrayList<String>() {{add("wish");}});
         expectedTrigram.put("i may", new ArrayList<String>() {{add("i"); }});
-        trigramGenerator.generateTrigram(input);
-        Map<String, ArrayList<String>> actualTrigram = trigramGenerator.getTrigram();
+        trigramMapGenerator.generateTrigramMap(input);
+        Map<String, ArrayList<String>> actualTrigram = trigramMapGenerator.getTrigram();
         assertEquals(expectedTrigram, actualTrigram);
     }
 
@@ -41,8 +36,8 @@ class TrigramGeneratorTest {
         expectedTrigram.put("did i", new ArrayList<String>() {{add("wish"); }});
         expectedTrigram.put("might did", new ArrayList<String>() {{add("i"); }});
 
-        trigramGenerator.generateTrigram(input);
-        Map<String, ArrayList<String>> actualTrigram = trigramGenerator.getTrigram();
+        trigramMapGenerator.generateTrigramMap(input);
+        Map<String, ArrayList<String>> actualTrigram = trigramMapGenerator.getTrigram();
         assertEquals(expectedTrigram, actualTrigram);
     }
 
@@ -52,8 +47,8 @@ class TrigramGeneratorTest {
         Map<String, ArrayList<String>> expectedTrigram = new HashMap<>();
         expectedTrigram.put("i like", new ArrayList<String>() {{add("books");}});
 
-        trigramGenerator.generateTrigram(input);
-        Map<String, ArrayList<String>> actualTrigram = trigramGenerator.getTrigram();
+        trigramMapGenerator.generateTrigramMap(input);
+        Map<String, ArrayList<String>> actualTrigram = trigramMapGenerator.getTrigram();
         assertEquals(expectedTrigram, actualTrigram);
     }
 
@@ -63,8 +58,8 @@ class TrigramGeneratorTest {
         Map<String, ArrayList<String>> expectedTrigram = new HashMap<>();
         expectedTrigram.put("like reading", new ArrayList<String>() {{add("books");}});
 
-        trigramGenerator.generateTrigram(input);
-        Map<String, ArrayList<String>> actualTrigram = trigramGenerator.getTrigram();
+        trigramMapGenerator.generateTrigramMap(input);
+        Map<String, ArrayList<String>> actualTrigram = trigramMapGenerator.getTrigram();
         assertEquals(expectedTrigram, actualTrigram);
     }
 
