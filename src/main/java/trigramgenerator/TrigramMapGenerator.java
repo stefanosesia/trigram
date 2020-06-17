@@ -4,11 +4,11 @@ import main.resources.IO;
 
 import java.util.*;
 
-public class TrigramGenerator {
+public class TrigramMapGenerator {
 
     private final Map<String, ArrayList<String>> trigram;
 
-    public TrigramGenerator(){
+    public TrigramMapGenerator(){
 
         this.trigram = new HashMap<>();
     }
@@ -23,7 +23,7 @@ public class TrigramGenerator {
         return recursiveCounter < listSize - 1;
     }
 
-    public void generateTrigram(List<String> inputText) {
+    public void generateTrigramMap(List<String> inputText) {
         if (inputText == null || inputText.size() == 0){
             IO.consolePrint("error", "Input text is empty");
             System.exit(0);

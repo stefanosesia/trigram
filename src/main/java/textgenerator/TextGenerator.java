@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class TextGenerator {
 
-    private Integer textLength;
+    private int textLength;
     private String resultingText;
 
     public TextGenerator(){

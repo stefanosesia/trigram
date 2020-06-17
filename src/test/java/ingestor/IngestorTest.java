@@ -14,10 +14,6 @@ import static org.junit.Assert.assertTrue;
 class IngestorTest {
     Ingestor ingestor = new Ingestor();
 
-    @BeforeEach
-    void setUp() {
-    }
-
     @Test
     void testSmallInputFile() {
         File testFile = new File("src/test/sources/example.txt");

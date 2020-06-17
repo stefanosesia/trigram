@@ -1,7 +1,6 @@
 package test.java.filemanager;
 
 import main.java.filemanager.FileManager;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -14,10 +13,6 @@ class FileManagerTest {
 
     FileManager manager = new FileManager();
     File libraryDirectory = new File("src/test/sources");
-
-    @BeforeEach
-    void setUp() {
-    }
 
     @Test
     void getFileList() {
