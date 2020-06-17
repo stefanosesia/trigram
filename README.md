@@ -13,6 +13,8 @@ Compile the project and run UserInterface.main() , you will be prompted to choos
 
 The generated test will be saved in the "output" folder
 
+For a step-by-step installation guide follow https://github.com/stefanosesia/trigram/wiki/Step-by-step-setup-instructions-(Windows---Intellij)
+
 **NOTE:** *the program also generates an activity log and saves it to the "log" folder*
 
 **NOTE:** *make sure the "library" and "output" folder have the right read/write permissions, should there be a problem with that, the program should prompt you.*
