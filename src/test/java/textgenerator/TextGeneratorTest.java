@@ -1,8 +1,7 @@
-package test.java.textgenerator;
+package textgenerator;
 
-import main.java.textgenerator.TextGenerator;
-import main.java.trigramgenerator.TrigramMapGenerator;
 import org.junit.jupiter.api.Test;
+import trigrammapgenerator.TrigramMapGenerator;
 
 import java.util.Collections;
 import java.util.List;

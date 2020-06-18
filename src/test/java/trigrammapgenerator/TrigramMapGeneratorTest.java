@@ -1,8 +1,7 @@
-package test.java.trigramgenerator;
+package trigrammapgenerator;
 
-import main.java.trigramgenerator.TrigramMapGenerator;
-import main.resources.IO;
 import org.junit.jupiter.api.Test;
+import utilities.IO;
 
 import java.util.*;
 

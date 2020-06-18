@@ -1,11 +1,11 @@
-package main.java.userinterface;
+package userinterface;
 
-import main.java.filemanager.FileManager;
-import main.java.ingestor.Ingestor;
-import main.java.textgenerator.TextGenerator;
-import main.java.trigramgenerator.TrigramMapGenerator;
-import main.resources.Constants;
-import main.resources.IO;
+import filemanager.FileManager;
+import ingestor.Ingestor;
+import textgenerator.TextGenerator;
+import trigrammapgenerator.TrigramMapGenerator;
+import utilities.Constants;
+import utilities.IO;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

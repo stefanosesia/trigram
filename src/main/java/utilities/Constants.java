@@ -1,4 +1,4 @@
-package main.resources;
+package utilities;
 
 import java.io.File;
 import java.util.HashMap;
@@ -13,15 +13,15 @@ public class Constants {
     public static final Integer minimumOutputLength = 3;
     public static final Integer maximumOutputLength = 1000;
     public static final String resultingText = "Error";
-    public static final Map<String,String> messageType = new HashMap<>() {{
-        put("info","?");
-        put("step","*");
-        put("success","✓");
-        put("error","!");
+    public static final Map<String, String> messageType = new HashMap<String, String>() {{
+        put("info", "?");
+        put("step", "*");
+        put("success", "✓");
+        put("error", "!");
     }};
 
-    private Constants(){
+    private Constants() {
 
     }
-
 }
+

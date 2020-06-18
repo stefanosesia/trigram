@@ -1,6 +1,6 @@
-package main.java.filemanager;
+package filemanager;
 
-import main.resources.IO;
+import utilities.IO;
 
 import java.io.File;
 import java.util.ArrayList;

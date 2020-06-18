@@ -1,5 +1,4 @@
-package main.resources;
-
+package utilities;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;

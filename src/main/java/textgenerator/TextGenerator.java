@@ -1,7 +1,7 @@
-package main.java.textgenerator;
+package textgenerator;
 
-import main.resources.Constants;
-import main.resources.IO;
+import utilities.Constants;
+import utilities.IO;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,12 +1,11 @@
-package test.java.ingestor;
+package ingestor;
 
-import main.java.ingestor.Ingestor;
-import main.resources.Constants;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utilities.Constants;
 
 import java.io.File;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
