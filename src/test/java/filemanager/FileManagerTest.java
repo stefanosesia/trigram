@@ -1,6 +1,5 @@
-package test.java.filemanager;
+package filemanager;
 
-import main.java.filemanager.FileManager;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

@@ -1,6 +1,6 @@
-package main.java.trigramgenerator;
+package trigrammapgenerator;
 
-import main.resources.IO;
+import utilities.IO;
 
 import java.util.*;
 
@@ -49,7 +49,7 @@ public class TrigramMapGenerator {
                 String trigramValue = input.get(j+2);
 
                 if (trigram.containsKey(trigramKey)){
-                   trigram.get(trigramKey).add(trigramValue);
+                    trigram.get(trigramKey).add(trigramValue);
                 } else {
                     ArrayList<String> trigramValues = new ArrayList<String>();
                     trigramValues.add(trigramValue);

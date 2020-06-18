@@ -1,7 +1,7 @@
-package main.java.ingestor;
+package ingestor;
 
-import main.resources.Constants;
-import main.resources.IO;
+import utilities.Constants;
+import utilities.IO;
 
 import java.io.*;
 import java.util.ArrayList;
