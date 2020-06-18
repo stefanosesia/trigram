@@ -18,7 +18,7 @@ public class UserInterface {
     private static File sourceFile;
     private static final FileManager files = new FileManager();
     private static final Ingestor ingestor = new Ingestor();
-    private static final TrigramMapGenerator trigram = new TrigramMapGenerator();
+    private static final TrigramMapGenerator trigramMapGenerator = new TrigramMapGenerator();
     private static final TextGenerator generator = new TextGenerator();
 
     public UserInterface(){
@@ -47,10 +47,10 @@ public class UserInterface {
         IO.consolePrint("info", inputFile + " will be used to generate an output of " + outputLength + " words.");
 
         ingestor.readFile(sourceFile);
-        trigram.generateTrigramMap(ingestor.getInputText());
+        trigramMapGenerator.generateTrigramMap(ingestor.getInputText());
 
         generator.setTextLength(outputLength);
-        generator.generateText(trigram.getTrigram());
+        generator.generateText(trigramMapGenerator.getTrigram());
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
         ingestor.writeToFile(generator.getResultingText(), inputFile + "_" + timeStamp + ".txt");
 
