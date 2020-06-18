@@ -9,6 +9,8 @@ The program was developed using Java 14.0.1 and Junit 4.5
 ## Quick Start Guide
 The program comes pre-loaded with some .txt inputs in the "Library" folder, feel free to change, remove or add more books (https://www.gutenberg.org/ is a great source)
 
+The project supports Maven, you can run mvn clean install to set-up yoour environment. Intellij should pick it up autoomatically.
+
 Compile the project and run UserInterface.main() , you will be prompted to choose the right input as well as choose a maximum length of the output.
 
 The generated test will be saved in the "output" folder
@@ -66,10 +68,10 @@ This can be useful in production environment to set up monitoring or to debug sp
 **readFile**
 *Reads the text from a file, line by line, retuns a list of strings*
 
-### TrigramGenerator
+### TrigramMapGenerator
 *Given a list of lines in a files, it generates a trigram*
 
-**generateTrigram**
+**generateTrigramMap**
 *Generates a trigram from a List<String>, all text is lowercase, keys are lowercase and with no punctuation, some punctuation is allowed in the values *
 
 ### TextGenerator
