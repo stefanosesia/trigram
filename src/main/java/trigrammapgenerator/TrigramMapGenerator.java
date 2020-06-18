@@ -23,13 +23,9 @@ public class TrigramMapGenerator {
         return recursiveCounter < listSize - 1;
     }
 
-    public void generateTrigramMap(List<String> inputText) {
-        if (inputText == null || inputText.size() == 0){
-            IO.consolePrint("error", "Input text is empty");
-            System.exit(0);
-        }
+    private void extractLines(List<String> inputText) {
         for (int i = 0; i < inputText.size(); i++) {
-            ArrayList<String> input = new ArrayList<String>(Arrays.asList(IO.stripValues(inputText.get(i)).split(" ")));
+            ArrayList<String> input = new ArrayList<>(Arrays.asList(IO.stripValues(inputText.get(i)).split(" ")));
             input.removeAll(Collections.singletonList(" "));
             input.removeAll(Collections.singletonList(""));
             if (hasNext(inputText.size(), i)) {
@@ -44,19 +40,31 @@ public class TrigramMapGenerator {
                 continue;
             }
 
-            for (int j = 0; j < input.size() - 2; j++) {
-                String trigramKey = IO.concatenate(IO.stripKey(input.get(j)),IO.stripKey(input.get(j+1)));
-                String trigramValue = input.get(j+2);
+            generateTrigram(input);
+        }
+    }
 
-                if (trigram.containsKey(trigramKey)){
-                    trigram.get(trigramKey).add(trigramValue);
-                } else {
-                    ArrayList<String> trigramValues = new ArrayList<String>();
-                    trigramValues.add(trigramValue);
-                    trigram.put(trigramKey, trigramValues);
-                }
+    private void generateTrigram(ArrayList<String> input) {
+        for (int i = 0; i < input.size() - 2; i++) {
+            String trigramKey = IO.concatenate(IO.stripKey(input.get(i)),IO.stripKey(input.get(i+1)));
+            String trigramValue = input.get(i+2);
+
+            if (trigram.containsKey(trigramKey)){
+                trigram.get(trigramKey).add(trigramValue);
+            } else {
+                ArrayList<String> trigramValues = new ArrayList<>();
+                trigramValues.add(trigramValue);
+                trigram.put(trigramKey, trigramValues);
             }
         }
+    }
+
+    public void generateTrigramMap(List<String> inputText) {
+        if (inputText == null || inputText.size() == 0){
+            IO.consolePrint("error", "Input text is empty");
+            System.exit(0);
+        }
+        extractLines(inputText);
         IO.consolePrint("success", "Trigram map successfully generated");
     }
 
